@@ -90,14 +90,16 @@ export const MenuManager = component$(() => {
         isGlutenFree: editingItem.isGlutenFree.value,
         allergens: editingItem.allergens.value,
         ingredients: editingItem.ingredients.value,
-        category: editingItem.category.value
+        category: editingItem.category.value, // Make sure this line is included
       };
-      await menuService.updateMenuItem(updatedItem.id!, updatedItem);
+
+      await menuService.updateMenuItem(updatedItem);
       isEditModalOpen.value = false;
       document.body.classList.remove('modal-open');
       const items = await menuService.getMenuItems();
       menuItems.value = items;
     } catch (err) {
+      console.error('Error updating menu item:', err);
       error.value = 'Failed to update menu item';
     }
   });
@@ -208,11 +210,14 @@ export const MenuManager = component$(() => {
                     <label for="edit-price">Price</label>
                     <input
                       type="number"
-                      bind:value={editingItem.price}
-                      onInput$={(event) => {
+                      id="edit-price"
+                      value={editingItem.price.value}
+                      onChange$={(event) => {
                         const value = (event.target as HTMLInputElement).value;
                         editingItem.price.value = parseFloat(value);
                       }}
+                      placeholder="Enter item price"
+                      required
                     />
                   </div>
                   <div class="form-row">
@@ -334,8 +339,10 @@ export const MenuManager = component$(() => {
                     <input 
                       type="text" 
                       id="edit-category" 
-                      bind:value={editingItem.category}
+                      value={editingItem.category.value}
+                      onChange$={(event) => editingItem.category.value = (event.target as HTMLInputElement).value}
                       placeholder="Enter item category" 
+                      required
                     />
                   </div>
                   <div class="button-group">
