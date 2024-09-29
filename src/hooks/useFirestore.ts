@@ -12,9 +12,16 @@ export function useFirestore() {
       const querySnapshot = await getDocs(collection(db, "menuItems"));
       const items: MenuItem[] = querySnapshot.docs.map(doc => ({
         id: doc.id,
-        name: doc.data().name || "",
-        description: doc.data().description || "",
-        price: doc.data().price || 0,
+        name: doc.data().name,
+        description: doc.data().description,
+        price: doc.data().price,
+        // Add other required properties with default values if not present in the document
+        weather: doc.data().weather || '',
+        daytime: doc.data().daytime || '',
+        season: doc.data().season || '',
+        isVegan: doc.data().isVegan || false,
+        isGlutenFree: doc.data().isGlutenFree || false,
+        // ... other properties
       }));
       console.log("Fetched menu items:", items);
       menuItems.value = items;

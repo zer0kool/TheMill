@@ -1,4 +1,4 @@
-import { component$, useStore, $ } from '@builder.io/qwik';
+import { component$, JSX, useStore, $ } from '@builder.io/qwik';
 import { db } from '~/services/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import './AddDishForm.css'; // Import the CSS for styling

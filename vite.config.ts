@@ -38,8 +38,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       headers: {
         // Don't cache the server response in dev mode
         "Cache-Control": "public, max-age=0",
-      },
-      ssr: true,
+      }
     },
     preview: {
       headers: {
