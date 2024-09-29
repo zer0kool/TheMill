@@ -1,0 +1,117 @@
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-gray-section {
+    background-color: #f0f0f0; /* Light gray color */
+    padding: 20px;
+    text-align: center;
+}
+
+.image-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 11;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.content-section {
+    background-color: #3949AB; /* Blue color */
+    color: white;
+    padding: 60px 40px; /* Added padding for better spacing */
+    line-height: 1.6; /* Improved line height for readability */
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0; /* Remove margin for better alignment */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.text-columns {
+    display: flex;
+    gap: 40px;
+}
+
+.column {
+    flex: 1;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: underline;
+}
+
+.button-container {
+    display: flex; /* Use flexbox for alignment */
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px; /* Space above the button container */
+}
+
+.contact-button {
+    background-color: #3949AB; /* Match the theme color */
+    color: white; /* Text color */
+    padding: 12px 24px; /* Increased padding for better touch targets */
+    border: 2px solid white; /* White border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+.contact-button:hover {
+    background-color: #303f9f; /* Darker shade on hover to match theme */
+    transform: scale(1.05); /* Slightly enlarge on hover for effect */
+}
+
+.tech-stack {
+    padding: 40px;
+    background-color: #f0f2f5; /* Light background for tech stack */
+    border-radius: 8px; /* Optional: Add rounded corners to the tech stack section */
+}
+
+.tech-stack h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.tech-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tech-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .text-columns {
+        flex-direction: column;
+    }
+}

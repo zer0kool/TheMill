@@ -1,17 +1,46 @@
-import { component$, Slot } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import { component$, Slot, useStore, useContextProvider, createContextId, useTask$ } from "@builder.io/qwik";
+import { auth } from '~/services/firebaseConfig';
+import { onAuthStateChanged } from "firebase/auth";
+import Navigation from '~/components/Navbar/Navbar';
+import Footer from '~/components/Footer/Footer';
 
-export const onGet: RequestHandler = async ({ cacheControl }) => {
-  // Control caching for this request for best performance and to reduce hosting costs:
-  // https://qwik.dev/docs/caching/
-  cacheControl({
-    // Always serve a cached response by default, up to a week stale
-    staleWhileRevalidate: 60 * 60 * 24 * 7,
-    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
-    maxAge: 5,
-  });
-};
+export const AuthContext = createContextId('auth-context');
 
 export default component$(() => {
-  return <Slot />;
+  const authState = useStore({
+    user: null,
+  });
+
+  useContextProvider(AuthContext, authState);
+
+  useTask$(() => {
+    if (typeof window !== 'undefined') {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          authState.user = {
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            emailVerified: user.emailVerified
+          };
+          console.log('User logged in:', authState.user);
+        } else {
+          authState.user = null;
+          console.log('User logged out');
+        }
+      });
+
+      return () => unsubscribe();
+    }
+  });
+
+  return (
+    <>
+    <Navigation />
+      <main>
+        <Slot />
+      </main>
+      <Footer />
+    </>
+  );
 });

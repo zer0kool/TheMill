@@ -1,0 +1,103 @@
+{
+    "restaurant": {
+        "name": "The Mill At The Kasteel",
+        "type": "Mexican-American Restaurant",
+        "address": "33505 Sr-20, Oak Harbor",
+        "phone": "(360)-682-6754",
+        "website": "themillatthekasteel.com",
+        "hours": {
+          "monday_to_saturday": "7am-10pm",
+          "sunday": "7am-3pm"
+        },
+    "menu": {
+        "starters": [
+            {
+                "id": 1,
+                "name": "Mozzarella Sticks",
+                "price": 13,
+                "mood": { "season": "summer", "weather": "warm", "daytime": "snack" }
+            },
+            {
+                "id": 2,
+                "name": "Beer Battered Onion Rings",
+                "price": 10,
+                "mood": { "season": "summer", "weather": "warm", "daytime": "snack" }
+            },
+            ...
+        ],
+        "soups_and_salads": {
+            "soups": [
+                {
+                    "id": 13,
+                    "name": "Clam Chowder",
+                    "prices": {
+                        "cup": 6,
+                        "bowl": 8
+                    },
+                    "mood": { "season": "winter", "weather": "cold", "daytime": "lunch" }
+                },
+                ...
+            ],
+            "salads": [
+                {
+                    "id": 16,
+                    "name": "Spinach Berry Salad",
+                    "price": 17,
+                    "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" }
+                },
+                ...
+            ]
+        },
+        "sandwiches_and_burgers": [
+            {
+                "id": 21,
+                "name": "Classic Burger",
+                "price": 16,
+                "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" }
+            },
+            ...
+        ],
+        "breakfast": {
+            "skillets": [
+                {
+                    "id": 33,
+                    "name": "Housemade Chorizo Skillet",
+                    "price": 19,
+                    "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" }
+                },
+                ...
+            ],
+            ...
+        },
+        "entrees": {
+            "seafood": [
+                {
+                    "id": 60,
+                    "name": "Seafood Combo",
+                    "price": 27,
+                    "mood": { "season": "summer", "weather": "warm", "daytime": "dinner" }
+                },
+                ...
+            ],
+            ...
+        },
+        "sides_and_extras": [
+            {
+                "id": 77,
+                "name": "Waffle",
+                "price": 8,
+                "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" }
+            },
+            ...
+        ],
+        "beverages": [
+            {
+                "id": 98,
+                "name": "Coffee",
+                "price": 3,
+                "mood": { "season": "winter", "weather": "cold", "daytime": "breakfast" }
+            },
+            ...
+        ]
+    }
+}

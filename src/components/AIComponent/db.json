@@ -1,0 +1,1363 @@
+{
+    "restaurant": {
+      "name": "The Mill At The Kasteel",
+      "type": "Mexican-American Restaurant",
+      "address": "33505 Sr-20, Oak Harbor",
+      "phone": "(360)-682-6754",
+      "website": "themillatthekasteel.com",
+      "hours": {
+        "monday_to_saturday": "7am-10pm",
+        "sunday": "7am-3pm"
+      }
+    },
+    "menu": {
+      "starters": [
+        {
+          "id": 1,
+          "name": "Mozzarella Sticks",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Crispy mozzarella sticks served with marinara sauce.",
+          "allergens": ["dairy"],
+          "ingredients": ["mozzarella cheese", "bread crumbs", "marinara sauce"]
+        },
+        {
+          "id": 2,
+          "name": "Beer Battered Onion Rings",
+          "price": 10,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 4,
+          "description": "Crispy onion rings dipped in beer batter and fried to perfection.",
+          "allergens": ["gluten", "onion"],
+          "ingredients": ["onions", "beer", "flour"]
+        },
+        {
+          "id": 3,
+          "name": "Sampler Platter",
+          "price": 16,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 6,
+          "description": "A selection of our favorite appetizers, including mozzarella sticks, onion rings, and spinach and artichoke dip.",
+          "allergens": ["dairy", "gluten", "onion"],
+          "ingredients": ["mozzarella cheese", "onions", "spinach", "artichoke", "bread crumbs", "flour"]
+        },
+        {
+          "id": 4,
+          "name": "Spinach & Artichoke Dip",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Creamy spinach and artichoke dip served with tortilla chips.",
+          "allergens": ["dairy"],
+          "ingredients": ["spinach", "artichoke", "cream cheese", "tortilla chips"]
+        },
+        {
+          "id": 5,
+          "name": "Fiesta Nachos",
+          "price": 17,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 7,
+          "description": "Tortilla chips smothered in melted cheese, salsa, and your choice of chicken or beef.",
+          "allergens": ["dairy", "gluten"],
+          "ingredients": ["tortilla chips", "cheese", "salsa", "chicken", "beef"]
+        },
+        {
+          "id": 6,
+          "name": "Sweet Potato Waffle Fries",
+          "price": 9,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 3,
+          "description": "Crispy sweet potato fries served with a side of ketchup.",
+          "allergens": [],
+          "ingredients": ["sweet potatoes", "ketchup"]
+        },
+        {
+          "id": 7,
+          "name": "Chicken Wings",
+          "price": 14,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": true,
+          "recommendationWeight": 6,
+          "description": "Tender and juicy chicken wings tossed in your choice of sauce.",
+          "allergens": ["chicken"],
+          "ingredients": ["chicken", "sauce"]
+        },
+        {
+          "id": 8,
+          "name": "Jalapeno Poppers",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Crispy jalapeno peppers stuffed with cream cheese and served with a side of ranch.",
+          "allergens": ["dairy"],
+          "ingredients": ["jalapeno peppers", "cream cheese", "ranch"]
+        },
+        {
+          "id": 9,
+          "name": "Fresh Guacamole",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 4,
+          "description": "Freshly made guacamole served with tortilla chips.",
+          "allergens": [],
+          "ingredients": ["avocado", "tortilla chips"]
+        },
+        {
+          "id": 10,
+          "name": "Queso Chorizo",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Spicy chorizo sausage mixed with melted cheese and served with tortilla chips.",
+          "allergens": ["dairy", "gluten"],
+          "ingredients": ["chorizo sausage", "cheese", "tortilla chips"]
+        },
+        {
+          "id": 11,
+          "name": "Papa & Chorizo Taquitos",
+          "price": 14,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 6,
+          "description": "Crispy taquitos filled with chorizo sausage and potatoes.",
+          "allergens": ["gluten"],
+          "ingredients": ["chorizo sausage", "potatoes", "tortilla"]
+        },
+        {
+          "id": 12,
+          "name": "Triple Dip",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "snack" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A trio of dips including spinach and artichoke, queso, and salsa.",
+          "allergens": ["dairy"],
+          "ingredients": ["spinach", "artichoke", "cream cheese", "cheese", "salsa"]
+        }
+      ],
+      "soups_and_salads": {
+        "soups": [
+          {
+            "id": 13,
+            "name": "Clam Chowder",
+            "prices": {
+              "cup": 6,
+              "bowl": 8
+            },
+            "mood": { "season": "winter", "weather": "cold", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 3,
+            "description": "Creamy clam chowder served with crusty bread.",
+            "allergens": ["shellfish"],
+            "ingredients": ["clams", "potatoes", "onions", "celery", "cream"]
+          },
+          {
+            "id": 14,
+            "name": "Tuscany",
+            "prices": {
+              "cup": 6,
+              "bowl": 8
+            },
+            "mood": { "season": "winter", "weather": "cold", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 3,
+            "description": "Hearty Italian-style soup with vegetables and beans.",
+            "allergens": [],
+            "ingredients": ["vegetables", "beans", "tomatoes", "herbs"]
+          },
+          {
+            "id": 15,
+            "name": "Soup & Salad",
+            "prices": {
+              "cup": 12,
+              "bowl": 14
+            },
+            "mood": { "season": "winter", "weather": "cold", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 4,
+            "description": "Combination of a warm soup and a fresh salad.",
+            "allergens": [],
+            "ingredients": ["soup", "salad", "dressing"]
+          }
+        ],
+        "salads": [
+          {
+            "id": 16,
+            "name": "Spinach Berry Salad",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" },
+            "isVegan": true,
+            "isGlutenFree": true,
+            "recommendationWeight": 4,
+            "description": "Fresh spinach leaves mixed with juicy berries and crumbled feta.",
+            "allergens": ["dairy"],
+            "ingredients": ["spinach", "berries", "feta cheese", "nuts"]
+          },
+          {
+            "id": 17,
+            "name": "Taco Salad",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 5,
+            "description": "Crunchy taco shell filled with seasoned ground beef and fresh veggies.",
+            "allergens": ["gluten"],
+            "ingredients": ["ground beef", "taco shell", "lettuce", "tomatoes", "cheese"]
+          },
+          {
+            "id": 18,
+            "name": "Steak Avocado Salad",
+            "price": 22,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 6,
+            "description": "Grilled steak served on top of mixed greens with sliced avocado.",
+            "allergens": [],
+            "ingredients": ["steak", "avocado", "mixed greens", "dressing"]
+          },
+          {
+            "id": 19,
+            "name": "Chicken B.L.T.A. Salad",
+            "price": 20,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 5,
+            "description": "Crispy chicken, bacon, lettuce, tomatoes, and avocado on mixed greens.",
+            "allergens": [],
+            "ingredients": ["chicken", "bacon", "lettuce", "tomatoes", "avocado", "dressing"]
+          },
+          {
+            "id": 20,
+            "name": "Fiesta Salad",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "lunch" },
+            "isVegan": false,
+            "isGlutenFree": true,
+            "recommendationWeight": 4,
+            "description": "Colorful mix of vegetables, beans, and tortilla strips.",
+            "allergens": [],
+            "ingredients": ["vegetables", "beans", "tortilla strips", "dressing"]
+          }
+        ]
+      },
+      "sandwiches_and_burgers": [
+        {
+          "id": 21,
+          "name": "Classic Burger",
+          "price": 16,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A classic burger, perfect for a warm lunch.",
+          "allergens": []
+        },
+        {
+          "id": 22,
+          "name": "Poblano Jack Burger",
+          "price": 18,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A spicy burger with poblano peppers and jack cheese, perfect for a warm lunch.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 23,
+          "name": "Patty Melt",
+          "price": 18,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A classic patty melt, perfect for a warm lunch.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 24,
+          "name": "Black Bean Burger",
+          "price": 16,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A vegetarian option, perfect for a warm lunch.",
+          "allergens": []
+        },
+        {
+          "id": 25,
+          "name": "Crispy Chicken Burger",
+          "price": 16,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A crispy chicken burger, perfect for a warm lunch.",
+          "allergens": ["poultry"]
+        },
+        {
+          "id": 26,
+          "name": "Grilled Chicken Avocado Burger",
+          "price": 19,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A healthy option, perfect for a warm lunch.",
+          "allergens": ["poultry"]
+        },
+        {
+          "id": 27,
+          "name": "Sourdough Tuna Melt",
+          "price": 17,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A classic tuna melt, perfect for a warm lunch.",
+          "allergens": ["fish", "dairy"]
+        },
+        {
+          "id": 28,
+          "name": "California B.L.T.",
+          "price": 18,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A classic B.L.T., perfect for a warm lunch.",
+          "allergens": ["pork"]
+        },
+        {
+          "id": 29,
+          "name": "The Kasteel Club",
+          "price": 19,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A hearty club sandwich, perfect for a warm lunch.",
+          "allergens": ["poultry", "pork", "dairy"]
+        },
+        {
+          "id": 30,
+          "name": "Monte Cristo",
+          "price": 18,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A sweet and savory sandwich, perfect for a warm lunch.",
+          "allergens": ["poultry", "pork", "dairy"]
+        },
+        {
+          "id": 31,
+          "name": "Philly Cheesesteak",
+          "price": 20,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A classic cheesesteak, perfect for a warm lunch.",
+          "allergens": ["beef", "dairy"]
+        },
+        {
+          "id": 32,
+          "name": "Sockeye Salmon Burger",
+          "price": 20,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "lunch" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A healthy and flavorful option, perfect for a warm lunch.",
+          "allergens": ["fish"]
+        }
+      ],
+      "breakfast": {
+        "skillets": [
+          {
+            "id": 33,
+            "name": "Housemade Chorizo Skillet",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A delicious skillet with housemade chorizo, potatoes, and eggs.",
+            "allergens": ["pork"],
+            "ingredients": ["chorizo", "potatoes", "eggs"]
+          },
+          {
+            "id": 34,
+            "name": "Fajita Steak Skillet",
+            "prices": {
+              "chicken": 19,
+              "steak": 22
+            },
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A sizzling skillet with your choice of chicken or steak, peppers, onions, and eggs.",
+            "allergens": ["beef", "chicken"],
+            "ingredients": ["chicken", "steak", "peppers", "onions", "eggs"]
+          },
+          {
+            "id": 35,
+            "name": "Machaca Skillet",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A hearty skillet with machaca, potatoes, and eggs.",
+            "allergens": ["beef"],
+            "ingredients": ["machaca", "potatoes", "eggs"]
+          }
+        ],
+        "classics": [
+          {
+            "id": 36,
+            "name": "The Classic",
+            "price": 10,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two eggs any style, choice of bacon, sausage, or ham, and toast or pancakes.",
+            "allergens": ["pork"],
+            "ingredients": ["eggs", "bacon", "sausage", "ham", "toast", "pancakes"]
+          },
+          {
+            "id": 37,
+            "name": "The Meat Lovers",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Three eggs any style, bacon, sausage, ham, and steak, served with toast or pancakes.",
+            "allergens": ["pork", "beef"],
+            "ingredients": ["eggs", "bacon", "sausage", "ham", "steak", "toast", "pancakes"]
+          },
+          {
+            "id": 38,
+            "name": "Chicken Fried Steak",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A classic southern dish, served with country gravy, two eggs any style, and toast or pancakes.",
+            "allergens": ["beef", "dairy"],
+            "ingredients": ["steak", "flour", "eggs", "gravy", "toast", "pancakes"]
+          },
+          {
+            "id": 39,
+            "name": "Steak and Eggs",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A juicy steak, two eggs any style, and toast or pancakes.",
+            "allergens": ["beef"],
+            "ingredients": ["steak", "eggs", "toast", "pancakes"]
+          },
+          {
+            "id": 40,
+            "name": "Biscuits and Gravy",
+            "price": 16,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two biscuits smothered in country gravy, served with two eggs any style.",
+            "allergens": ["dairy"],
+            "ingredients": ["biscuits", "gravy", "eggs"]
+          },
+          {
+            "id": 41,
+            "name": "Breakfast Burrito",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A large flour tortilla filled with scrambled eggs, choice of bacon, sausage, or ham, potatoes, and cheese, served with salsa.",
+            "allergens": ["pork", "dairy"],
+            "ingredients": ["tortilla", "eggs", "bacon", "sausage", "ham", "potatoes", "cheese", "salsa"]
+          },
+          {
+            "id": 42,
+            "name": "Chilaquiles Verde or Rojos",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Crispy corn tortilla strips, choice of green or red sauce, topped with two eggs any style, cheese, and sour cream.",
+            "allergens": ["dairy"],
+            "ingredients": ["tortilla", "eggs", "cheese", "sour cream"]
+          },
+          {
+            "id": 43,
+            "name": "Carnitas & Eggs",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Crispy pork carnitas, served with two eggs any style, beans, and tortillas.",
+            "allergens": ["pork"],
+            "ingredients": ["carnitas", "eggs", "beans", "tortillas"]
+          }
+        ],
+        "benedicts": [
+          {
+            "id": 44,
+            "name": "Classic Benedict",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two poached eggs and Canadian bacon on an English muffin, topped with hollandaise sauce.",
+            "allergens": ["pork", "eggs", "dairy"],
+            "ingredients": ["eggs", "bacon", "english muffin", "hollandaise sauce"]
+          },
+          {
+            "id": 45,
+            "name": "Chorizo Benedict",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two poached eggs and chorizo on an English muffin, topped with hollandaise sauce.",
+            "allergens": ["pork", "eggs", "dairy"],
+            "ingredients": ["eggs", "chorizo", "english muffin", "hollandaise sauce"]
+          },
+          {
+            "id": 46,
+            "name": "Bacon Avocado Benedict",
+            "price": 20,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two poached eggs, bacon, and avocado on an English muffin, topped with hollandaise sauce.",
+            "allergens": ["pork", "eggs", "dairy"],
+            "ingredients": ["eggs", "bacon", "avocado", "english muffin", "hollandaise sauce"]
+          },
+          {
+            "id": 47,
+            "name": "California Benedict",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two poached eggs, tomato, and avocado on an English muffin, topped with hollandaise sauce.",
+            "allergens": ["eggs", "dairy"],
+            "ingredients": ["eggs", "tomato", "avocado", "english muffin", "hollandaise sauce"]
+          },
+          {
+            "id": 48,
+            "name": "Salmon Benedict",
+            "price": 20,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two poached eggs and smoked salmon on an English muffin, topped with hollandaise sauce.",
+            "allergens": ["fish", "eggs", "dairy"],
+            "ingredients": ["eggs", "salmon", "english muffin", "hollandaise sauce"]
+          }
+        ],
+        "omelettes_and_scrambles": [
+          {
+            "id": 49,
+            "name": "California Omelette",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A three egg omelette with avocado, bacon, and cheese, served with toast or pancakes.",
+            "allergens": ["eggs", "pork", "dairy"],
+            "ingredients": ["eggs", "avocado", "bacon", "cheese", "toast", "pancakes"]
+          },
+          {
+            "id": 50,
+            "name": "Meat Lovers Omelette",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A three egg omelette with bacon, sausage, ham, and cheese, served with toast or pancakes.",
+            "allergens": ["eggs", "pork", "dairy"],
+            "ingredients": ["eggs", "bacon", "sausage", "ham", "cheese", "toast", "pancakes"]
+          },
+          {
+            "id": 51,
+            "name": "Chorizo & Eggs",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Scrambled eggs with chorizo, served with beans and tortillas.",
+            "allergens": ["pork", "eggs"],
+            "ingredients": ["eggs", "chorizo", "beans", "tortillas"]
+          },
+          {
+            "id": 52,
+            "name": "Machaca Poblano",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Scrambled eggs with machaca and poblano peppers, served with beans and tortillas.",
+            "allergens": ["beef", "eggs"],
+            "ingredients": ["eggs", "machaca", "poblano peppers", "beans", "tortillas"]
+          }
+        ],
+        "griddles": [
+          {
+            "id": 53,
+            "name": "Pancakes or Waffle",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Three fluffy pancakes or a golden waffle, served with butter and syrup.",
+            "allergens": ["dairy", "gluten"],
+            "ingredients": ["flour", "eggs", "milk", "butter", "syrup"]
+          },
+          {
+            "id": 54,
+            "name": "Cinnamon Roll French Toast",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two slices of cinnamon roll bread, dipped in egg batter and grilled, served with butter and syrup.",
+            "allergens": ["dairy", "gluten"],
+            "ingredients": ["cinnamon roll bread", "eggs", "butter", "syrup"]
+          },
+          {
+            "id": 55,
+            "name": "French Toast",
+            "price": 17,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two slices of bread, dipped in egg batter and grilled, served with butter and syrup.",
+            "allergens": ["dairy", "gluten"],
+            "ingredients": ["bread", "eggs", "butter", "syrup"]
+          },
+          {
+            "id": 56,
+            "name": "Banana and Toasted Pecan Pancakes or Waffle",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Three fluffy pancakes or a golden waffle, filled with banana and toasted pecans, served with butter and syrup.",
+            "allergens": ["dairy", "gluten", "nuts"],
+            "ingredients": ["flour", "eggs", "milk", "butter", "syrup", "banana", "toasted pecans"]
+          },
+          {
+            "id": 57,
+            "name": "Triple Berry Crepes",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two delicate crepes, filled with strawberries, blueberries, and raspberries, served with whipped cream and syrup.",
+            "allergens": ["dairy", "gluten"],
+            "ingredients": ["flour", "eggs", "milk", "butter", "syrup", "strawberries", "blueberries", "raspberries"]
+          },
+          {
+            "id": 58,
+            "name": "Stuffed Banana and Toasted Pecan French Toast",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Two slices of bread, stuffed with banana and toasted pecans, dipped in egg batter and grilled, served with butter and syrup.",
+            "allergens": ["dairy", "gluten", "nuts"],
+            "ingredients": ["bread", "eggs", "butter", "syrup", "banana", "toasted pecans"]
+          },
+          {
+            "id": 59,
+            "name": "Supreme Waffle",
+            "price": 16,
+            "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A golden waffle, topped with strawberries, blueberries, and raspberries, served with whipped cream and syrup.",
+            "allergens": ["dairy", "gluten"]
+          }
+        ]
+      },
+      "entrees": {
+        "seafood": [
+          {
+            "id": 60,
+            "name": "Seafood Combo",
+            "price": 27,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A delicious combination of seafood, perfect for a summer dinner.",
+            "allergens": ["seafood"]
+          },
+          {
+            "id": 61,
+            "name": "Coconut Shrimp and Clam Strips",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Crispy coconut shrimp and tender clam strips, a tropical delight.",
+            "allergens": ["seafood", "coconut"]
+          },
+          {
+            "id": 62,
+            "name": "Alaskan Beer Battered True Cod",
+            "prices": {
+              "two_pieces": 20,
+              "three_pieces": 23
+            },
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Fresh Alaskan cod, beer battered and fried to perfection.",
+            "allergens": ["seafood", "gluten"]
+          },
+          {
+            "id": 63,
+            "name": "Wild Sockeye Salmon",
+            "price": 24,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Wild caught Sockeye salmon, grilled and served with a lemon dill sauce.",
+            "allergens": ["seafood"]
+          }
+        ],
+        "poultry": [
+          {
+            "id": 64,
+            "name": "Chicken Marsala",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Tender chicken breast, sautéed in a rich Marsala wine sauce with mushrooms.",
+            "allergens": ["dairy"]
+          },
+          {
+            "id": 65,
+            "name": "Chicken Strips",
+            "price": 18,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Crispy chicken strips, perfect for dipping in your favorite sauce.",
+            "allergens": ["dairy"]
+          },
+          {
+            "id": 66,
+            "name": "Spinach and Artichoke Chicken",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Grilled chicken breast, topped with creamy spinach and artichoke dip.",
+            "allergens": ["dairy"]
+          },
+          {
+            "id": 67,
+            "name": "Chicken Parmesan",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Breaded chicken breast, topped with marinara sauce and melted mozzarella cheese.",
+            "allergens": ["dairy", "gluten"]
+          }
+        ],
+        "beef": [
+          {
+            "id": 68,
+            "name": "Country Fried Steak",
+            "price": 21,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Tender beef steak, breaded and fried, served with country gravy.",
+            "allergens": ["dairy", "gluten"]
+          },
+          {
+            "id": 69,
+            "name": "Top Sirloin",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Juicy top sirloin steak, grilled to your liking.",
+            "allergens": ["dairy"]
+          },
+          {
+            "id": 70,
+            "name": "Top Sirloin and Shrimp",
+            "price": 28,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A perfect surf and turf combination, top sirloin steak and grilled shrimp.",
+            "allergens": ["dairy", "seafood"]
+          },
+          {
+            "id": 71,
+            "name": "10 oz Ribeye Steak",
+            "price": 32,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A juicy 10 oz ribeye steak, grilled to perfection.",
+            "allergens": ["dairy"]
+          },
+          {
+            "id": 72,
+            "name": "Steak & Pasta",
+            "price": 28,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Your choice of steak, served with a side of pasta.",
+            "allergens": ["dairy", "gluten"]
+          }
+        ],
+        "pasta": [
+          {
+            "id": 73,
+            "name": "Shrimp Alfredo",
+            "price": 25,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Tender shrimp, served over a bed of fettuccine with a creamy Alfredo sauce.",
+            "allergens": ["dairy", "seafood", "gluten"]
+          },
+          {
+            "id": 74,
+            "name": "Chicken Linguine Alfredo",
+            "price": 23,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "Grilled chicken breast, served over a bed of linguine with a creamy Alfredo sauce.",
+            "allergens": ["dairy", "gluten"]
+          },
+          {
+            "id": 75,
+            "name": "Linguine Alfredo",
+            "price": 19,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": false,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A classic dish, linguine with a creamy Alfredo sauce.",
+            "allergens": ["dairy", "gluten"]
+          },
+          {
+            "id": 76,
+            "name": "Veggie Linguine Alfredo",
+            "price": 21,
+            "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+            "isVegan": true,
+            "isGlutenFree": false,
+            "recommendationWeight": 5,
+            "description": "A vegetarian option, linguine with a creamy Alfredo sauce and fresh vegetables.",
+            "allergens": ["dairy", "gluten"]
+          }
+        ]
+      },
+      "sides_and_extras": [
+        {
+          "id": 77,
+          "name": "Waffle",
+          "price": 8,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A golden waffle, perfect for a sunny breakfast.",
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "id": 78,
+          "name": "One pancake",
+          "price": 6,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A single fluffy pancake, a classic breakfast choice.",
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "id": 79,
+          "name": "Short Stack",
+          "price": 10,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Two fluffy pancakes, a hearty breakfast option.",
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "id": 80,
+          "name": "One egg",
+          "price": 2,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A single egg, cooked to your liking.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 81,
+          "name": "Two eggs",
+          "price": 3.5,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Two eggs, cooked to your liking.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 82,
+          "name": "Side of meat",
+          "price": 5,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Your choice of bacon, sausage, or ham.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 83,
+          "name": "Jack's Biscuit",
+          "price": 8,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A fluffy biscuit, perfect for breakfast or as a side with dinner.",
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "id": 84,
+          "name": "Side of Crepes (2)",
+          "price": 13,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Two delicate crepes, a light and delicious breakfast option.",
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "id": 85,
+          "name": "Fresh Fruit",
+          "price": 6,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A selection of fresh, seasonal fruit.",
+          "allergens": []
+        },
+        {
+          "id": 86,
+          "name": "Side Avocado",
+          "price": 3,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A side of fresh avocado, a healthy and delicious addition to any meal.",
+          "allergens": []
+        },
+        {
+          "id": 87,
+          "name": "Side of Toast",
+          "price": 4,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Two slices of toast, a classic breakfast choice.",
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "id": 88,
+          "name": "Homestyle potatoes or Hashbrowns",
+          "price": 6,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": true,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "Your choice of homestyle potatoes or crispy hashbrowns.",
+          "allergens": []
+        },
+        {
+          "id": 89,
+          "name": "Side of fries",
+          "price": 6,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A side of crispy, golden fries.",
+          "allergens": []
+        },
+        {
+          "id": 90,
+          "name": "Side Garden Salad",
+          "price": 7,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A side of fresh garden salad, a light and healthy option.",
+          "allergens": []
+        },
+        {
+          "id": 91,
+          "name": "Side of Gravy",
+          "price": 3,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A side of rich, savory gravy.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 92,
+          "name": "Side of Sautéed Veggies",
+          "price": 5,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A side of fresh, sautéed vegetables.",
+          "allergens": []
+        },
+        {
+          "id": 93,
+          "name": "Side of Coleslaw",
+          "price": 4,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A side of tangy, crunchy coleslaw.",
+          "allergens": []
+        },
+        {
+          "id": 94,
+          "name": "Side of Chicken Breast",
+          "price": 10,
+          "mood": { "season": "summer", "weather": "sunny", "daytime": "dinner" },
+          "isVegan": false,
+          "isGlutenFree": false,
+          "recommendationWeight": 5,
+          "description": "A grilled chicken breast, a healthy and delicious option.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 95,
+          "name": "Side of Shrimp",
+          "price": 8,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "dinner" }
+        },
+        {
+          "id": 96,
+          "name": "Side of Rice and Beans",
+          "price": 6,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "dinner" }
+        },
+        {
+          "id": 97,
+          "name": "Side of Tortillas",
+          "price": 3.5,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "dinner" }
+        }
+      ],
+      "beverages": [
+        {
+          "id": 98,
+          "name": "Coffee",
+          "price": 3,
+          "mood": { "season": "summer", "weather": "rainy", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A warm cup of coffee to start your day.",
+          "allergens": []
+        },
+        {
+          "id": 99,
+          "name": "Coke Products",
+          "price": 3,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A refreshing Coke product to quench your thirst.",
+          "allergens": []
+        },
+        {
+          "id": 100,
+          "name": "Shirley Temple",
+          "price": 4,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A non-alcoholic cocktail, perfect for kids and adults alike.",
+          "allergens": []
+        },
+        {
+          "id": 101,
+          "name": "Roy Rogers",
+          "price": 4,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A classic non-alcoholic drink, flavored with cola and grenadine.",
+          "allergens": []
+        },
+        {
+          "id": 102,
+          "name": "Apple Juice",
+          "prices": {
+            "small": 3,
+            "large": 4
+          },
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Fresh apple juice, available in small and large sizes.",
+          "allergens": []
+        },
+        {
+          "id": 103,
+          "name": "Cranberry Juice",
+          "prices": {
+            "small": 3,
+            "large": 4
+          },
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Tart and refreshing cranberry juice, available in small and large sizes.",
+          "allergens": []
+        },
+        {
+          "id": 104,
+          "name": "Pineapple Juice",
+          "prices": {
+            "small": 3,
+            "large": 4
+          },
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Sweet and tangy pineapple juice, available in small and large sizes.",
+          "allergens": []
+        },
+        {
+          "id": 105,
+          "name": "Tomato Juice",
+          "prices": {
+            "small": 3,
+            "large": 4
+          },
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Fresh tomato juice, available in small and large sizes.",
+          "allergens": []
+        },
+        {
+          "id": 106,
+          "name": "Fresh Squeezed Orange Juice",
+          "price": 5,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Freshly squeezed orange juice, a refreshing breakfast choice.",
+          "allergens": []
+        },
+        {
+          "id": 107,
+          "name": "Hot Chocolate",
+          "price": 3.5,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Rich and creamy hot chocolate, perfect for a warm breakfast.",
+          "allergens": []
+        },
+        {
+          "id": 108,
+          "name": "Lemonade",
+          "price": 3.5,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "Freshly squeezed lemonade, a refreshing summer drink.",
+          "allergens": []
+        },
+        {
+          "id": 109,
+          "name": "Flavor Lemonade",
+          "price": 4.5,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A twist on classic lemonade, with a variety of flavors.",
+          "allergens": []
+        },
+        {
+          "id": 110,
+          "name": "Iced Tea",
+          "price": 3,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A refreshing glass of iced tea, perfect for a warm breakfast.",
+          "allergens": []
+        },
+        {
+          "id": 111,
+          "name": "Arnold Palmer",
+          "price": 4,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A refreshing mix of iced tea and lemonade.",
+          "allergens": []
+        },
+        {
+          "id": 112,
+          "name": "Hot Tea",
+          "price": 3,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A soothing cup of hot tea, perfect for a warm breakfast.",
+          "allergens": []
+        },
+        {
+          "id": 113,
+          "name": "Classic Milkshake",
+          "price": 6,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": false,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A creamy and indulgent milkshake, a classic breakfast treat.",
+          "allergens": ["dairy"]
+        },
+        {
+          "id": 114,
+          "name": "Horchata",
+          "price": 3.5,
+          "mood": { "season": "summer", "weather": "warm", "daytime": "breakfast" },
+          "isVegan": true,
+          "isGlutenFree": true,
+          "recommendationWeight": 5,
+          "description": "A sweet and creamy Mexican drink, perfect for breakfast.",
+          "allergens": []
+        }
+      ]
+    }
+  }

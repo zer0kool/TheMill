@@ -27,6 +27,7 @@
     "qwik": "qwik"
   },
   "devDependencies": {
+    "@qwikest/icons": "^0.0.13",
     "@builder.io/qwik": "^1.9.0",
     "@builder.io/qwik-city": "^1.9.0",
     "@types/eslint": "8.56.10",
@@ -36,9 +37,13 @@
     "eslint": "8.57.0",
     "eslint-plugin-qwik": "^1.9.0",
     "prettier": "3.3.3",
+    "tailwindcss": "^3.4.12",
     "typescript": "5.4.5",
     "undici": "*",
     "vite": "5.3.5",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "firebase": "^10.13.2"
   }
 }

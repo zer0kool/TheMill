@@ -1,0 +1,86 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    flex-direction: column;
+}
+.menu-bar {
+    border-radius: 25px;
+    display: inline-flex;
+    background-color: rgb(36 41 49 / 95%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    padding: 0 10px;
+    margin: 36px 0 0 0;
+}
+
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: space-between; /* Spread items evenly */
+    width: 100%; /* Full width */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.nav-links li {
+    position: relative; /* Required for the pseudo-element */
+    color: rgb(223, 223, 223); /* Text color for links */
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 6px 12px; /* Padding for clickable area */
+    margin: 0 8px; /* Margin between items */
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-links li a {
+    color: rgb(223, 223, 223); /* White text color for links */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 16px; /* Padding for clickable area */
+    display: block; /* Make the entire area clickable */
+    font-size: 1.2rem;
+}
+
+.nav-links li a:hover {
+    color: #ffffff; /* Black text on hover/active */
+}
+
+li.active::before,
+.menu-bar li::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: 0.2s;
+    border-radius: 25px;
+}
+
+.climate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 20px;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links li a {
+        padding: 8px 12px; /* Smaller padding on mobile */
+        font-size: 1rem; /* Smaller font size on mobile */
+    }
+    .nav-links li {
+        padding: 0;
+    }
+}

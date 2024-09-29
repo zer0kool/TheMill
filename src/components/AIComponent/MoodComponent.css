@@ -1,0 +1,50 @@
+.mood-component {
+    padding: 20px;
+    border-radius: 0; /* No rounded corners */
+    box-shadow: none; /* Remove shadow */
+    text-align: center; /* Center text alignment */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    text-align: left;
+}
+
+.mood-component h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    line-height: 2;
+    color: rgb(31 41 55 );
+}
+
+.mood-component li:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.mood-component li:last-child {
+    border-bottom: none; /* Remove divider for last item */
+}
+
+
+.menu-items-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 16px; /* Space between items */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Default for mobile: single column (100% width) */
+.menu-items-list > * {
+    flex: 1 1 100%;
+}
+
+/* For small tablets */
+@media (min-width: 600px) {
+    .menu-items-list > * {
+        flex: 1 1 calc(50% - 16px); /* Two columns */
+    }
+}
+
+/* For larger tablets */
+@media (min-width: 768px) {
+    .menu-items-list > * {
+        flex: 1 1 calc(33.33% - 16px); /* Three columns */
+    }
+}

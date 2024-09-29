@@ -1,0 +1,90 @@
+.footer {
+    position: relative;
+    text-align: center;
+    padding: 20px 20px 20px;
+    background-color: white;
+    margin-top: 100px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.wavesContainer {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.parallax > use {
+    animation: moveWaves 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes moveWaves {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 101;
+}
+
+.social-icons a {
+    color: #202020;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: #202020;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
