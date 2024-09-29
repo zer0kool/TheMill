@@ -208,7 +208,7 @@ export const MenuManager = component$(() => {
                     <label for="edit-price">Price</label>
                     <input
                       type="number"
-                      bind:value={editingItem.price}
+                      bind:value={editingItem.price.value.toString()}
                       onInput$={(event) => {
                         const value = (event.target as HTMLInputElement).value;
                         editingItem.price.value = parseFloat(value);

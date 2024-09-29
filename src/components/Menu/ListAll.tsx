@@ -4,20 +4,21 @@ import './ListAll.css'; // Import the CSS for ListAll
 import DishCard from '../Admin/MenuManager/DishCard'; // Import the DishCard component
 import type { MenuItem } from "~/services/menuService";
 
+// Ensure the MenuItem type includes all necessary properties
 interface MenuItem {
     id: string;
     name: string;
-    prices?: { [key: string]: number };
-    price?: number;
-    description?: string;
-    mood?: {
-        season: string;
-        weather: string;
-        daytime: string;
-    };
-    isVegan?: boolean;
-    isGlutenFree?: boolean;
-    allergens?: string[];
+    description: string;
+    price: number;
+    type: string;
+    season: string;
+    weather: string;
+    daytime: string;
+    isVegan: boolean;
+    isGlutenFree: boolean;
+    allergens: string[];
+    ingredients: string[];
+    category: string;
 }
 
 const ListAll = component$(() => {
