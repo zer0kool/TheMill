@@ -124,7 +124,7 @@ export const MenuManager = component$(() => {
 
   const filteredMenuItems = useComputed$(() => {
     const term = searchTerm.value.toLowerCase();
-    return menuItems.value.filter(item => 
+    return menuItems.value.filter((item: { name: string; description: string }) => 
       item.name.toLowerCase().includes(term) || 
       item.description.toLowerCase().includes(term)
     );
@@ -348,9 +348,9 @@ export const MenuManager = component$(() => {
               <DishCard 
                 key={item.id} 
                 item={item} 
-                onEdit={$(() => handleEditMenuItem(item))} // Wrap in $()
-                onDelete={$(() => handleDeleteMenuItem(item.id!))} // Wrap in $()
-                isEditable={isAuthenticated} // Pass the authentication status
+                onEdit={$(() => handleEditMenuItem(item))}
+                onDelete={$(() => handleDeleteMenuItem(item.id!))}
+                isEditable={isAuthenticated}
               />
             ))}
           </div>
