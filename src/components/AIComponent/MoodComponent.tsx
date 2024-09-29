@@ -1,17 +1,17 @@
-import { component$, useStore, useTask$ } from "@builder.io/qwik";
+import { component$, useStore, useTask$, $ } from "@builder.io/qwik";
 import menuData from './db.json'; // Adjust the path as necessary
 import { getCurrentDaytime } from '~/utils/helpers'; // Import from helpers
 import './MoodComponent.css'; // Import the CSS for MoodComponent
 import { LuSun, LuCloud, LuCloudRain, LuCloudSnow, LuUtensils, LuCoffee, LuSalad } from '@qwikest/icons/lucide';
 
-
-
-interface Mood {
+// Define Mood type
+type Mood = {
     season: string;
     weather: string;
     daytime: string;
-}
+};
 
+// Define MenuItem interface
 interface MenuItem {
     id: string;
     name: string;
@@ -24,19 +24,21 @@ interface MenuItem {
     allergens?: string[];
 }
 
-
-const MoodComponent = component$(({ mood }: { mood: any }) => {
+const MoodComponent = component$(({ mood }: { mood: Mood }) => {
     const daytime = getCurrentDaytime(); // Get the current daytime
     console.log("Current Daytime:", daytime); // Debugging: log the current daytime
+    console.log("Current Mood:", mood); // Add this line to use the 'mood' prop
 
     const state = useStore({
-        currentMood: mood || { season: "summer", weather: "warm", daytime },
-        filteredItems: []
+        currentMood: { season: "summer", weather: "warm", daytime },
+        filteredItems: [] as MenuItem[]
     });
 
     // Define filterItems inside useTask$
-    useTask$(() => {
-        const allItems = [
+    useTask$(({ track }: { track: any }) => {
+        track(() => state.currentMood);
+        
+        const allItems: MenuItem[] = [
             ...menuData.menu.starters,
             ...menuData.menu.soups_and_salads.soups,
             ...menuData.menu.soups_and_salads.salads,
@@ -52,17 +54,20 @@ const MoodComponent = component$(({ mood }: { mood: any }) => {
             ...menuData.menu.entrees.pasta,
             ...menuData.menu.sides_and_extras,
             ...menuData.menu.beverages,
-        ];
+        ].map(item => ({
+            ...item,
+            id: String(item.id)
+        }));
 
         // Filter items based on mood and daytime
-        state.filteredItems = allItems.filter(item => 
+        state.filteredItems = allItems.filter((item: MenuItem) => 
             item.mood.season === state.currentMood.season && // Use optional chaining
             item.mood.weather === state.currentMood.weather &&
             item.mood.daytime === state.currentMood.daytime // Ensure this matches the current time
         );
     });
 
-    const getWeatherIcon = (weather: string) => {
+    const getWeatherIcon = $((weather: string) => {
         switch (weather.toLowerCase()) {
             case 'sunny': return <LuSun class="icon" />;
             case 'warm': return <LuSun class="icon" />;
@@ -72,16 +77,16 @@ const MoodComponent = component$(({ mood }: { mood: any }) => {
             case 'snowy': return <LuCloudSnow class="icon" />;
             default: return null;
         }
-    };
+    });
 
-    const getMealTypeIcon = (mealType: string) => {
+    const getMealTypeIcon = $((mealType: string) => {
         switch (mealType.toLowerCase()) {
             case 'breakfast': return <LuCoffee class="icon" />;
             case 'lunch': return <LuSalad class="icon" />;
             case 'dinner': return <LuUtensils class="icon" />;
             default: return <LuUtensils class="icon" />;
         }
-    };
+    });
 
     return (
         <div class="mood-component">
