@@ -173,7 +173,7 @@ export const MenuManager = component$(() => {
             <div class="modal">
               <div class="modal-content">
                 <button class="close-button" onClick$={() => isAddModalOpen.value = false}>×</button>
-                <AddDishForm onAddDish={handleAddMenuItem} />
+                <AddDishForm onAddDish$={handleAddMenuItem} />
               </div>
             </div>
           )}
@@ -211,11 +211,7 @@ export const MenuManager = component$(() => {
                     <input
                       type="number"
                       id="edit-price"
-                      value={editingItem.price.value}
-                      onChange$={(event) => {
-                        const value = (event.target as HTMLInputElement).value;
-                        editingItem.price.value = parseFloat(value);
-                      }}
+                      bind:value={editingItem.price}
                       placeholder="Enter item price"
                       required
                     />

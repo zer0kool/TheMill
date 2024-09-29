@@ -4,6 +4,17 @@ import './ListAll.css'; // Import the CSS for ListAll
 import DishCard from '../Admin/MenuManager/DishCard'; // Import the DishCard component
 import type { MenuItem } from "~/services/menuService";
 
+const mapToMenuItem = (item: any): MenuItem => ({
+  ...item,
+  id: item.id.toString(),
+  type: item.mood?.season || '',
+  season: item.mood?.season || '',
+  weather: item.mood?.weather || '',
+  daytime: item.mood?.daytime || '',
+  category: '', // Add appropriate category
+  price: item.price || (item.prices ? Object.values(item.prices)[0] : 0),
+});
+
 const ListAll = component$(() => {
     // State to manage the number of items to show per category
     const state = useStore({
@@ -21,25 +32,25 @@ const ListAll = component$(() => {
 
     // Group items by category for easier rendering
     const groupedItems: Record<string, MenuItem[]> = {
-        Starters: menuData.menu.starters.map(item => ({ ...item, id: item.id.toString() })),
+        Starters: menuData.menu.starters.map(mapToMenuItem),
         'Soups and Salads': [...menuData.menu.soups_and_salads.soups, ...menuData.menu.soups_and_salads.salads]
-            .map(item => ({ ...item, id: item.id.toString() })),
-        'Sandwiches and Burgers': menuData.menu.sandwiches_and_burgers.map(item => ({ ...item, id: item.id.toString() })),
+            .map(mapToMenuItem),
+        'Sandwiches and Burgers': menuData.menu.sandwiches_and_burgers.map(mapToMenuItem),
         Breakfast: [
             ...menuData.menu.breakfast.skillets,
             ...menuData.menu.breakfast.classics,
             ...menuData.menu.breakfast.benedicts,
             ...menuData.menu.breakfast.omelettes_and_scrambles,
             ...menuData.menu.breakfast.griddles
-        ].map(item => ({ ...item, id: item.id.toString() })),
+        ].map(mapToMenuItem),
         Entrees: [
             ...menuData.menu.entrees.seafood,
             ...menuData.menu.entrees.poultry,
             ...menuData.menu.entrees.beef,
             ...menuData.menu.entrees.pasta
-        ].map(item => ({ ...item, id: item.id.toString() })),
-        'Sides and Extras': menuData.menu.sides_and_extras.map(item => ({ ...item, id: item.id.toString() })),
-        Beverages: menuData.menu.beverages.map(item => ({ ...item, id: item.id.toString() }))
+        ].map(mapToMenuItem),
+        'Sides and Extras': menuData.menu.sides_and_extras.map(mapToMenuItem),
+        Beverages: menuData.menu.beverages.map(mapToMenuItem)
     };
 
     // Function to load more items for a specific category
@@ -59,6 +70,8 @@ const ListAll = component$(() => {
                                 <DishCard 
                                     key={item.id} 
                                     item={item} 
+                                    onEdit$={() => {}}
+                                    onDelete$={() => {}}
                                     isEditable={false}
                                 />
                             ))}

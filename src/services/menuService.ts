@@ -4,10 +4,11 @@ import { db } from "./firebaseConfig";
 const COLLECTION_NAME = "menu";
 
 export interface MenuItem {
-  id?: string;
+  id: string;
   name: string;
+  price?: number;
+  prices?: { [key: string]: number };
   description: string;
-  price: number;
   type: string;
   season: string;
   weather: string;
@@ -17,6 +18,8 @@ export interface MenuItem {
   allergens: string[];
   ingredients: string[];
   category: string;
+  mood?: { season: string; weather: string; daytime: string };
+  recommendationWeight?: number;
 }
 
 export const menuService = {
