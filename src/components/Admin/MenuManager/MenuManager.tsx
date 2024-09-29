@@ -209,7 +209,7 @@ export const MenuManager = component$(() => {
                     <input 
                       type="number" 
                       id="edit-price" 
-                      bind:value={editingItem.price}
+                      bind:value={editingItem.price.value.toString()}
                       placeholder="0.00" 
                       required 
                       min="0" 

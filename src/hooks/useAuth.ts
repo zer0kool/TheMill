@@ -5,15 +5,11 @@ export function useAuth() {
   const user = useSignal<{ uid: string; email: string } | null>(null); // Define the user type
 
   useTask$(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser: { uid: any; email: any; }) => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
-        // Only store serializable data
-        user.value = {
-          uid: currentUser.uid,
-          email: currentUser.email || '',
-        };
+        setUser({ uid: currentUser.uid, email: currentUser.email || '' });
       } else {
-        user.value = null; // Handle the case when no user is signed in
+        setUser(null);
       }
     });
 

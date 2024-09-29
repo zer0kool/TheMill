@@ -2,6 +2,7 @@ import { component$, useStore, useTask$, $ } from "@builder.io/qwik";
 import menuData from '~/components/AIComponent/db.json'; // Adjust the path as necessary
 import './ListAll.css'; // Import the CSS for ListAll
 import DishCard from '../Admin/MenuManager/DishCard'; // Import the DishCard component
+import type { MenuItem } from "~/services/menuService";
 
 interface MenuItem {
     id: string;

@@ -15,13 +15,15 @@ export function useFirestore() {
         name: doc.data().name,
         description: doc.data().description,
         price: doc.data().price,
-        // Add other required properties with default values if not present in the document
-        weather: doc.data().weather || '',
-        daytime: doc.data().daytime || '',
-        season: doc.data().season || '',
-        isVegan: doc.data().isVegan || false,
-        isGlutenFree: doc.data().isGlutenFree || false,
-        // ... other properties
+        type: doc.data().type,
+        season: doc.data().season,
+        weather: doc.data().weather,
+        daytime: doc.data().daytime,
+        isVegan: doc.data().isVegan,
+        isGlutenFree: doc.data().isGlutenFree,
+        allergens: doc.data().allergens || [],
+        ingredients: doc.data().ingredients || [],
+        category: doc.data().category
       }));
       console.log("Fetched menu items:", items);
       menuItems.value = items;
