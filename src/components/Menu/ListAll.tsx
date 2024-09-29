@@ -4,21 +4,19 @@ import './ListAll.css'; // Import the CSS for ListAll
 import DishCard from '../Admin/MenuManager/DishCard'; // Import the DishCard component
 
 interface MenuItem {
-    id: string;  // Change this to string
+    id: string;
     name: string;
-    prices: { [key: string]: number };
+    prices?: { [key: string]: number };
     price?: number;
-    description: string;
-    mood: {
+    description?: string;
+    mood?: {
         season: string;
         weather: string;
         daytime: string;
     };
-    isVegan: boolean;
-    isGlutenFree: boolean;
-    allergens: string[];
-    ingredients?: string[];
-    recommendationWeight?: number;
+    isVegan?: boolean;
+    isGlutenFree?: boolean;
+    allergens?: string[];
 }
 
 const ListAll = component$(() => {
@@ -36,33 +34,27 @@ const ListAll = component$(() => {
         });
     });
 
-    // Function to map items to MenuItem interface
-    const mapToMenuItem = (item: any): MenuItem => ({
-        ...item,
-        id: String(item.id),  // Convert id to string
-        prices: item.prices || { single: item.price },  // Ensure prices is always an object
-    });
-
     // Group items by category for easier rendering
     const groupedItems: Record<string, MenuItem[]> = {
-        Starters: menuData.menu.starters.map(mapToMenuItem),
-        'Soups and Salads': [...menuData.menu.soups_and_salads.soups, ...menuData.menu.soups_and_salads.salads].map(mapToMenuItem),
-        'Sandwiches and Burgers': menuData.menu.sandwiches_and_burgers.map(mapToMenuItem),
+        Starters: menuData.menu.starters.map(item => ({ ...item, id: item.id.toString() })),
+        'Soups and Salads': [...menuData.menu.soups_and_salads.soups, ...menuData.menu.soups_and_salads.salads]
+            .map(item => ({ ...item, id: item.id.toString() })),
+        'Sandwiches and Burgers': menuData.menu.sandwiches_and_burgers.map(item => ({ ...item, id: item.id.toString() })),
         Breakfast: [
-            ...menuData.menu.breakfast.skillets.map(mapToMenuItem),
-            ...menuData.menu.breakfast.classics.map(mapToMenuItem),
-            ...menuData.menu.breakfast.benedicts.map(mapToMenuItem),
-            ...menuData.menu.breakfast.omelettes_and_scrambles.map(mapToMenuItem),
-            ...menuData.menu.breakfast.griddles.map(mapToMenuItem)
-        ],
+            ...menuData.menu.breakfast.skillets,
+            ...menuData.menu.breakfast.classics,
+            ...menuData.menu.breakfast.benedicts,
+            ...menuData.menu.breakfast.omelettes_and_scrambles,
+            ...menuData.menu.breakfast.griddles
+        ].map(item => ({ ...item, id: item.id.toString() })),
         Entrees: [
-            ...menuData.menu.entrees.seafood.map(mapToMenuItem),
-            ...menuData.menu.entrees.poultry.map(mapToMenuItem),
-            ...menuData.menu.entrees.beef.map(mapToMenuItem),
-            ...menuData.menu.entrees.pasta.map(mapToMenuItem)
-        ],
-        'Sides and Extras': menuData.menu.sides_and_extras.map(mapToMenuItem),
-        Beverages: menuData.menu.beverages.map(mapToMenuItem)
+            ...menuData.menu.entrees.seafood,
+            ...menuData.menu.entrees.poultry,
+            ...menuData.menu.entrees.beef,
+            ...menuData.menu.entrees.pasta
+        ].map(item => ({ ...item, id: item.id.toString() })),
+        'Sides and Extras': menuData.menu.sides_and_extras.map(item => ({ ...item, id: item.id.toString() })),
+        Beverages: menuData.menu.beverages.map(item => ({ ...item, id: item.id.toString() }))
     };
 
     // Function to load more items for a specific category
