@@ -4,7 +4,7 @@ import { getCurrentDaytime } from '~/utils/helpers'; // Import from helpers
 import './MoodComponent.css'; // Import the CSS for MoodComponent
 import { LuSun, LuCloud, LuCloudRain, LuCloudSnow, LuSunrise, LuSunset, LuLeaf, LuSnowflake, LuUmbrella, LuThermometer, LuUtensils, LuCoffee, LuSalad } from '@qwikest/icons/lucide';
 
-const MoodComponent = component$(({ mood }) => {
+const MoodComponent = component$(({ mood }: { mood: any }) => {
     const daytime = getCurrentDaytime(); // Get the current daytime
     console.log("Current Daytime:", daytime); // Debugging: log the current daytime
 
