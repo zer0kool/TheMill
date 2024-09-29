@@ -1,4 +1,5 @@
 import { component$, useStore, $ } from '@builder.io/qwik';
+import type { MenuItem } from '~/services/menuService';
 import { db } from '~/services/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import './AddDishForm.css'; // Import the CSS for styling
@@ -10,7 +11,11 @@ import './AddDishForm.css'; // Import the CSS for styling
  *
  * @returns {JSX.Element} - The rendered form component.
  */
-const AddDishForm = component$<{ onAddDish: PropFunction<(newDish: Omit<MenuItem, "id">) => Promise<void>> }>(({ onAddDish }) => {
+interface AddDishFormProps {
+  onAddDish$: PropFunction<(newDish: Omit<MenuItem, "id">) => Promise<void>>;
+}
+
+export const AddDishForm = component$<AddDishFormProps>(({ onAddDish$ }) => {
   const store = useStore({
     name: '',
     price: 0,

@@ -206,14 +206,13 @@ export const MenuManager = component$(() => {
                   </div>
                   <div class="form-group">
                     <label for="edit-price">Price</label>
-                    <input 
-                      type="number" 
-                      id="edit-price" 
-                      bind:value={editingItem.price.value.toString()}
-                      placeholder="0.00" 
-                      required 
-                      min="0" 
-                      step="0.01" 
+                    <input
+                      type="number"
+                      bind:value={editingItem.price}
+                      onInput$={(event) => {
+                        const value = (event.target as HTMLInputElement).value;
+                        editingItem.price.value = parseFloat(value);
+                      }}
                     />
                   </div>
                   <div class="form-row">

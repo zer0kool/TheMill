@@ -7,9 +7,9 @@ export function useAuth() {
   useTask$(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
-        setUser({ uid: currentUser.uid, email: currentUser.email || '' });
+        user.value = { uid: currentUser.uid, email: currentUser.email || '' };
       } else {
-        setUser(null);
+        user.value = null;
       }
     });
 
