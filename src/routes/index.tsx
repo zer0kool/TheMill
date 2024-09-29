@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik"; // Removed unused imports
 import type { DocumentHead } from "@builder.io/qwik-city";
-import AIComponent from "~/components/AIComponent/AIComponent"; // Import AIComponent
 import MoodComponent from "~/components/AIComponent/MoodComponent"; // Import MoodComponent
 import { getCurrentDaytime } from "~/utils/helpers"; // Import from helpers
 import './index.css';
