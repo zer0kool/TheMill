@@ -12,18 +12,18 @@ export const MenuManager = component$(() => {
   const searchTerm = useSignal('');
   const editingItem = useStore({
     id: "",
-    name: "",
-    description: "",
-    price: 0,
-    type: "starter",
-    season: "winter",
-    weather: "sunny",
-    daytime: "breakfast",
-    isVegan: false,
-    isGlutenFree: false,
-    allergens: [] as string[],
-    ingredients: [] as string[],
-    category: ""
+    name: useSignal(""),
+    description: useSignal(""),
+    price: useSignal(0),
+    type: useSignal("starter"),
+    season: useSignal("winter"),
+    weather: useSignal("sunny"),
+    daytime: useSignal("breakfast"),
+    isVegan: useSignal(false),
+    isGlutenFree: useSignal(false),
+    allergens: useSignal([] as string[]),
+    ingredients: useSignal([] as string[]),
+    category: useSignal("")
   });
   const isEditing = useSignal(false);
   const isAddModalOpen = useSignal(false);
@@ -57,7 +57,19 @@ export const MenuManager = component$(() => {
   });
 
   const handleEditMenuItem = $((item: MenuItem) => {
-    Object.assign(editingItem, item);
+    editingItem.id = item.id!;
+    editingItem.name.value = item.name;
+    editingItem.description.value = item.description;
+    editingItem.price.value = item.price;
+    editingItem.type.value = item.type;
+    editingItem.season.value = item.season;
+    editingItem.weather.value = item.weather;
+    editingItem.daytime.value = item.daytime;
+    editingItem.isVegan.value = item.isVegan;
+    editingItem.isGlutenFree.value = item.isGlutenFree;
+    editingItem.allergens.value = [...item.allergens];
+    editingItem.ingredients.value = [...item.ingredients];
+    editingItem.category.value = item.category;
     isEditing.value = true;
     isEditModalOpen.value = true;
     document.body.classList.add('modal-open');
@@ -67,18 +79,18 @@ export const MenuManager = component$(() => {
     try {
       const updatedItem: MenuItem = {
         id: editingItem.id,
-        name: editingItem.name,
-        description: editingItem.description,
-        price: editingItem.price,
-        type: editingItem.type,
-        season: editingItem.season,
-        weather: editingItem.weather,
-        daytime: editingItem.daytime,
-        isVegan: editingItem.isVegan,
-        isGlutenFree: editingItem.isGlutenFree,
-        allergens: editingItem.allergens,
-        ingredients: editingItem.ingredients,
-        category: editingItem.category
+        name: editingItem.name.value,
+        description: editingItem.description.value,
+        price: editingItem.price.value,
+        type: editingItem.type.value,
+        season: editingItem.season.value,
+        weather: editingItem.weather.value,
+        daytime: editingItem.daytime.value,
+        isVegan: editingItem.isVegan.value,
+        isGlutenFree: editingItem.isGlutenFree.value,
+        allergens: editingItem.allergens.value,
+        ingredients: editingItem.ingredients.value,
+        category: editingItem.category.value
       };
       await menuService.updateMenuItem(updatedItem.id!, updatedItem);
       isEditModalOpen.value = false;
@@ -101,25 +113,25 @@ export const MenuManager = component$(() => {
   });
 
   const handleAddAllergen = $(() => {
-    if (newAllergen.value && !editingItem.allergens.includes(newAllergen.value)) {
-      editingItem.allergens = [...editingItem.allergens, newAllergen.value];
+    if (newAllergen.value && !editingItem.allergens.value.includes(newAllergen.value)) {
+      editingItem.allergens.value = [...editingItem.allergens.value, newAllergen.value];
       newAllergen.value = "";
     }
   });
 
   const handleRemoveAllergen = $((allergen: string) => {
-    editingItem.allergens = editingItem.allergens.filter(a => a !== allergen);
+    editingItem.allergens.value = editingItem.allergens.value.filter(a => a !== allergen);
   });
 
   const handleAddIngredient = $(() => {
-    if (newIngredient.value && !editingItem.ingredients.includes(newIngredient.value)) {
-      editingItem.ingredients = [...editingItem.ingredients, newIngredient.value];
+    if (newIngredient.value && !editingItem.ingredients.value.includes(newIngredient.value)) {
+      editingItem.ingredients.value = [...editingItem.ingredients.value, newIngredient.value];
       newIngredient.value = "";
     }
   });
 
   const handleRemoveIngredient = $((ingredient: string) => {
-    editingItem.ingredients = editingItem.ingredients.filter(i => i !== ingredient);
+    editingItem.ingredients.value = editingItem.ingredients.value.filter(i => i !== ingredient);
   });
 
   const filteredMenuItems = useComputed$(() => {
@@ -178,8 +190,7 @@ export const MenuManager = component$(() => {
                     <input 
                       type="text" 
                       id="edit-name" 
-                      value={editingItem.name} 
-                      onChange$={(e) => editingItem.name = (e.target as HTMLInputElement).value}
+                      bind:value={editingItem.name}
                       placeholder="Enter item name" 
                       required 
                     />
@@ -188,8 +199,7 @@ export const MenuManager = component$(() => {
                     <label for="edit-description">Description</label>
                     <textarea 
                       id="edit-description" 
-                      value={editingItem.description} 
-                      onChange$={(e) => editingItem.description = (e.target as HTMLTextAreaElement).value}
+                      bind:value={editingItem.description}
                       placeholder="Enter item description" 
                       required 
                     />
@@ -199,8 +209,7 @@ export const MenuManager = component$(() => {
                     <input 
                       type="number" 
                       id="edit-price" 
-                      value={editingItem.price} 
-                      onChange$={(e) => editingItem.price = parseFloat((e.target as HTMLInputElement).value)}
+                      bind:value={editingItem.price}
                       placeholder="0.00" 
                       required 
                       min="0" 
@@ -214,7 +223,7 @@ export const MenuManager = component$(() => {
                         id="edit-type" 
                         bind:value={editingItem.type} 
                         required 
-                        onChange$={() => (editingItem.type = editingItem.type)}
+                        onChange$={() => (editingItem.type.value = editingItem.type.value)}
                       >
                         <option value="starter">Starter</option>
                         <option value="main">Main Course</option>
@@ -225,8 +234,8 @@ export const MenuManager = component$(() => {
                       <label for="edit-season">Season</label>
                       <select 
                         id="edit-season" 
-                        value={editingItem.season} 
-                        onChange$={(e) => editingItem.season = (e.target as HTMLSelectElement).value}
+                        value={editingItem.season.value} 
+                        onChange$={(e) => editingItem.season.value = (e.target as HTMLSelectElement).value}
                         required 
                       >
                         <option value="winter">Winter</option>
@@ -243,7 +252,7 @@ export const MenuManager = component$(() => {
                         id="edit-weather" 
                         bind:value={editingItem.weather} 
                         required 
-                        onChange$={() => (editingItem.weather = editingItem.weather)}
+                        onChange$={() => (editingItem.weather.value = editingItem.weather.value)}
                       >
                         <option value="sunny">Sunny</option>
                         <option value="rainy">Rainy</option>
@@ -255,8 +264,8 @@ export const MenuManager = component$(() => {
                       <label for="edit-daytime">Daytime</label>
                       <select 
                         id="edit-daytime" 
-                        value={editingItem.daytime} 
-                        onChange$={(e) => editingItem.daytime = (e.target as HTMLSelectElement).value}
+                        value={editingItem.daytime.value} 
+                        onChange$={(e) => editingItem.daytime.value = (e.target as HTMLSelectElement).value}
                         required 
                       >
                         <option value="breakfast">Breakfast</option>
@@ -272,8 +281,8 @@ export const MenuManager = component$(() => {
                         <input 
                           type="checkbox" 
                           id="edit-isVegan" 
-                          checked={editingItem.isVegan} 
-                          onChange$={() => editingItem.isVegan = !editingItem.isVegan} 
+                          checked={editingItem.isVegan.value} 
+                          onChange$={() => editingItem.isVegan.value = !editingItem.isVegan.value} 
                         />
                         <span class="slider round"></span>
                       </label>
@@ -284,8 +293,8 @@ export const MenuManager = component$(() => {
                         <input 
                           type="checkbox" 
                           id="edit-isGlutenFree" 
-                          checked={editingItem.isGlutenFree} 
-                          onChange$={() => editingItem.isGlutenFree = !editingItem.isGlutenFree} 
+                          checked={editingItem.isGlutenFree.value} 
+                          onChange$={() => editingItem.isGlutenFree.value = !editingItem.isGlutenFree.value} 
                         />
                         <span class="slider round"></span>
                       </label>
@@ -298,7 +307,7 @@ export const MenuManager = component$(() => {
                       <button type="button" onClick$={handleAddAllergen}>Add</button>
                     </div>
                     <div class="tags-container">
-                      {editingItem.allergens.map((allergen) => (
+                      {editingItem.allergens.value.map((allergen) => (
                         <div key={allergen} class="tag">
                           {allergen}
                           <button type="button" onClick$={() => handleRemoveAllergen(allergen)} class="remove-button">X</button>
@@ -313,7 +322,7 @@ export const MenuManager = component$(() => {
                       <button type="button" onClick$={handleAddIngredient}>Add</button>
                     </div>
                     <div class="tags-container">
-                      {editingItem.ingredients.map((ingredient) => (
+                      {editingItem.ingredients.value.map((ingredient) => (
                         <div key={ingredient} class="tag">
                           {ingredient}
                           <button type="button" onClick$={() => handleRemoveIngredient(ingredient)} class="remove-button">X</button>
@@ -326,9 +335,8 @@ export const MenuManager = component$(() => {
                     <input 
                       type="text" 
                       id="edit-category" 
-                      bind:value={editingItem.category} 
+                      bind:value={editingItem.category}
                       placeholder="Enter item category" 
-                      onChange$={() => (editingItem.category = editingItem.category)}
                     />
                   </div>
                   <div class="button-group">
