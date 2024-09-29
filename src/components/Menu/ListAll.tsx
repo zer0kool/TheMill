@@ -3,6 +3,24 @@ import menuData from '~/components/AIComponent/db.json'; // Adjust the path as n
 import './ListAll.css'; // Import the CSS for ListAll
 import DishCard from '../Admin/MenuManager/DishCard'; // Import the DishCard component
 
+interface MenuItem {
+    id: string;  // Change this to string
+    name: string;
+    prices: { [key: string]: number };
+    price?: number;
+    description: string;
+    mood: {
+        season: string;
+        weather: string;
+        daytime: string;
+    };
+    isVegan: boolean;
+    isGlutenFree: boolean;
+    allergens: string[];
+    ingredients?: string[];
+    recommendationWeight?: number;
+}
+
 const ListAll = component$(() => {
     // State to manage the number of items to show per category
     const state = useStore({
@@ -18,26 +36,33 @@ const ListAll = component$(() => {
         });
     });
 
+    // Function to map items to MenuItem interface
+    const mapToMenuItem = (item: any): MenuItem => ({
+        ...item,
+        id: String(item.id),  // Convert id to string
+        prices: item.prices || { single: item.price },  // Ensure prices is always an object
+    });
+
     // Group items by category for easier rendering
-    const groupedItems = {
-        Starters: menuData.menu.starters,
-        'Soups and Salads': [...menuData.menu.soups_and_salads.soups, ...menuData.menu.soups_and_salads.salads],
-        'Sandwiches and Burgers': menuData.menu.sandwiches_and_burgers,
+    const groupedItems: Record<string, MenuItem[]> = {
+        Starters: menuData.menu.starters.map(mapToMenuItem),
+        'Soups and Salads': [...menuData.menu.soups_and_salads.soups, ...menuData.menu.soups_and_salads.salads].map(mapToMenuItem),
+        'Sandwiches and Burgers': menuData.menu.sandwiches_and_burgers.map(mapToMenuItem),
         Breakfast: [
-            ...menuData.menu.breakfast.skillets,
-            ...menuData.menu.breakfast.classics,
-            ...menuData.menu.breakfast.benedicts,
-            ...menuData.menu.breakfast.omelettes_and_scrambles,
-            ...menuData.menu.breakfast.griddles
+            ...menuData.menu.breakfast.skillets.map(mapToMenuItem),
+            ...menuData.menu.breakfast.classics.map(mapToMenuItem),
+            ...menuData.menu.breakfast.benedicts.map(mapToMenuItem),
+            ...menuData.menu.breakfast.omelettes_and_scrambles.map(mapToMenuItem),
+            ...menuData.menu.breakfast.griddles.map(mapToMenuItem)
         ],
         Entrees: [
-            ...menuData.menu.entrees.seafood,
-            ...menuData.menu.entrees.poultry,
-            ...menuData.menu.entrees.beef,
-            ...menuData.menu.entrees.pasta
+            ...menuData.menu.entrees.seafood.map(mapToMenuItem),
+            ...menuData.menu.entrees.poultry.map(mapToMenuItem),
+            ...menuData.menu.entrees.beef.map(mapToMenuItem),
+            ...menuData.menu.entrees.pasta.map(mapToMenuItem)
         ],
-        'Sides and Extras': menuData.menu.sides_and_extras,
-        Beverages: menuData.menu.beverages
+        'Sides and Extras': menuData.menu.sides_and_extras.map(mapToMenuItem),
+        Beverages: menuData.menu.beverages.map(mapToMenuItem)
     };
 
     // Function to load more items for a specific category
@@ -53,7 +78,7 @@ const ListAll = component$(() => {
                     <div key={category} class="category-section">
                         <h2>{category}</h2>
                         <div class="menu-items-list">
-                            {items.slice(0, state.itemsToShow[category]).map(item => (
+                            {items.slice(0, state.itemsToShow[category]).map((item: MenuItem) => (
                                 <DishCard 
                                     key={item.id} 
                                     item={item} 
@@ -62,7 +87,10 @@ const ListAll = component$(() => {
                             ))}
                         </div>
                         {items.length > state.itemsToShow[category] && (
-                            <button class="load-more" onClick$={() => loadMoreItems(category)}>
+                            <button 
+                                class="load-more" 
+                                onClick$={() => loadMoreItems(category)}
+                            >
                                 Load More
                             </button>
                         )}
