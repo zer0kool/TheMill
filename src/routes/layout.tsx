@@ -4,10 +4,19 @@ import { onAuthStateChanged } from "firebase/auth";
 import Navigation from '~/components/Navbar/Navbar';
 import Footer from '~/components/Footer/Footer';
 
-export const AuthContext = createContextId('auth-context');
+export interface AuthContextType {
+  user: {
+    uid: string;
+    email: string | null;
+    displayName: string | null;
+    emailVerified: boolean;
+  } | null;
+}
+
+export const AuthContext = createContextId<AuthContextType>('auth-context');
 
 export default component$(() => {
-  const authState = useStore({
+  const authState = useStore<AuthContextType>({
     user: null,
   });
 

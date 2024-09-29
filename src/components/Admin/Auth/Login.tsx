@@ -1,94 +1,88 @@
-import { component$, useStore, $, useContext } from '@builder.io/qwik';
+import type { TaskCtx } from '@builder.io/qwik';
+import { component$, useStore, $, useContext, useSignal, useTask$ } from '@builder.io/qwik';
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { auth } from '~/services/firebaseConfig';
+import type { AuthContextType } from '~/routes/layout';
 import { AuthContext } from '~/routes/layout';
 import './Login.css';
 
-// Define a type for the user
-type User = {
-  uid: string;
-  email: string;
-  displayName?: string;
-  emailVerified: boolean;
-};
+const Login = component$(() => {
+  const authContext = useContext<AuthContextType>(AuthContext);
+  const userSignal = useSignal<AuthContextType['user']>(null);
+  const authStore = useStore<{ user: AuthContextType['user'] }>({ user: null });
 
-export default component$(() => {
   const store = useStore({
     email: '',
     password: '',
     error: '',
-    loading: false,
   });
 
-  // Update the authState type to include user
-  const authState = useContext<AuthContextType>(AuthContext); // Ensure AuthContextType is defined
-
-  const handleLogin = $(async (event: Event) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    store.error = '';
-    store.loading = true;
-
+  const handleLogin = $(async () => {
     try {
       await setPersistence(auth, browserLocalPersistence);
       const userCredential = await signInWithEmailAndPassword(auth, store.email, store.password);
       const user = userCredential.user;
-      authState.user = {
+      userSignal.value = {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified
-      } as User; // Cast to User type
-      console.log('Login successful', user);
+      };
     } catch (error) {
-      if (error instanceof Error) {
-        store.error = error.message;
-      } else {
-        store.error = 'Failed to log in. Please check your credentials.';
-      }
-      console.error('Login error:', error);
-    } finally {
-      store.loading = false;
+      store.error = (error as Error).message;
+    }
+  });
+
+  useTask$(({ track }: TaskCtx) => {
+    const user = track(() => userSignal.value);
+    if (user) {
+      authStore.user = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        emailVerified: user.emailVerified,
+      };
+    } else {
+      authStore.user = null;
+    }
+  });
+
+  useTask$(({ track }: TaskCtx) => {
+    const authUser = track(() => authStore.user);
+    if (authUser) {
+      authContext.user = authUser;
     }
   });
 
   return (
-    <div class="auth-container">
-      <div class="auth-form">
-        <h2>Welcome Back</h2>
-        <p class="form-description">Please enter your credentials.</p>
-        {store.error && <p class="error-message">{store.error}</p>}
-        {store.loading && <div class="loader"></div>}
-        <form preventdefault:submit onSubmit$={handleLogin}>
-          <div class="form-group">
-
-            <input
-              type="email"
-              id="email"
-              value={store.email}
-              onInput$={(e) => (store.email = (e.target as HTMLInputElement).value)}
-              required
-              placeholder="Enter your email"
-            />
-          </div>
-          <div class="form-group">
-
-            <input
-              type="password"
-              id="password"
-              value={store.password}
-              onInput$={(e) => (store.password = (e.target as HTMLInputElement).value)}
-              required
-              placeholder="Enter your password"
-            />
-          </div>
-          <button type="submit" class="submit-button" disabled={store.loading}>
-            {store.loading ? 'Logging in...' : 'Login'}
-          </button>
-          <p class="forgot-password"><a href="#">Forgot your password?</a></p>
-        </form>
-      </div>
+    <div class="login-container auth-container">
+      <h2>Login</h2>
+      <form preventdefault:submit onSubmit$={handleLogin}>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={store.email}
+            onInput$={(e) => store.email = (e.target as HTMLInputElement).value}
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            value={store.password}
+            onInput$={(e) => store.password = (e.target as HTMLInputElement).value}
+            required
+          />
+        </div>
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      {store.error && <p class="error">{store.error}</p>}
     </div>
   );
 });
+
+export default Login;
