@@ -4,6 +4,27 @@ import { getCurrentDaytime } from '~/utils/helpers'; // Import from helpers
 import './MoodComponent.css'; // Import the CSS for MoodComponent
 import { LuSun, LuCloud, LuCloudRain, LuCloudSnow, LuUtensils, LuCoffee, LuSalad } from '@qwikest/icons/lucide';
 
+
+
+interface Mood {
+    season: string;
+    weather: string;
+    daytime: string;
+}
+
+interface MenuItem {
+    id: string;
+    name: string;
+    prices?: { [key: string]: number };
+    price?: number;
+    description?: string;
+    mood: Mood;
+    isVegan?: boolean;
+    isGlutenFree?: boolean;
+    allergens?: string[];
+}
+
+
 const MoodComponent = component$(({ mood }: { mood: any }) => {
     const daytime = getCurrentDaytime(); // Get the current daytime
     console.log("Current Daytime:", daytime); // Debugging: log the current daytime
@@ -13,7 +34,7 @@ const MoodComponent = component$(({ mood }: { mood: any }) => {
         filteredItems: []
     });
 
-    // Use useTask$ to filter items based on the current mood
+    // Define filterItems inside useTask$
     useTask$(() => {
         const allItems = [
             ...menuData.menu.starters,
@@ -35,9 +56,9 @@ const MoodComponent = component$(({ mood }: { mood: any }) => {
 
         // Filter items based on mood and daytime
         state.filteredItems = allItems.filter(item => 
-            item.mood?.season === state.currentMood.season && // Use optional chaining
-            item.mood?.weather === state.currentMood.weather &&
-            item.mood?.daytime === state.currentMood.daytime // Ensure this matches the current time
+            item.mood.season === state.currentMood.season && // Use optional chaining
+            item.mood.weather === state.currentMood.weather &&
+            item.mood.daytime === state.currentMood.daytime // Ensure this matches the current time
         );
     });
 
@@ -67,13 +88,13 @@ const MoodComponent = component$(({ mood }: { mood: any }) => {
             <h2>Recommended Items for {state.currentMood.daytime}</h2>
             <div class="menu-items-list">
                 {state.filteredItems.length > 0 ? (
-                    state.filteredItems.map(item => (
+                    state.filteredItems.map((item: MenuItem) => (
                         <div class="menu-item" key={item.id}>
                             <h3>{item.name}</h3>
                             <p class="price">
                                 ${item.prices 
-                                    ? `${Math.min(...Object.values(item.prices))} - ${Math.max(...Object.values(item.prices))}` 
-                                    : item.price}
+                                    ? `${Math.min(...Object.values(item.prices).filter((price): price is number => typeof price === 'number'))} - ${Math.max(...Object.values(item.prices).filter((price): price is number => typeof price === 'number'))}` 
+                                    : (typeof item.price === 'number' ? item.price.toFixed(2) : 'Price not available')}
                             </p>
                             <p class="description">{item.description || 'A delicious menu item'}</p>
                             <div class="tags">
