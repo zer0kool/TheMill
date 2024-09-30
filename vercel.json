@@ -19,19 +19,6 @@
       ]
     }
   ],
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "zeroConfig": true }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/entry.vercel-edge.js"
-    }
-  ],
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
@@ -40,5 +27,11 @@
     "src/entry.vercel-edge.tsx": {
       "runtime": "edge"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/entry.vercel-edge.tsx"
+    }
+  ]
 }
