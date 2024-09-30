@@ -1,16 +1,18 @@
-import { vercelEdgeAdapter } from "@builder.io/qwik-city/adapters/vercel-edge/vite";
-import { extendConfig } from "@builder.io/qwik-city/vite";
-import baseConfig from "../../vite.config";
+import { defineConfig } from 'vite';
+import { qwikVite } from '@builder.io/qwik/optimizer';
+import { qwikCity } from '@builder.io/qwik-city/vite';
+import { builderDevTools } from "@builder.io/dev-tools/vite";
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { vercelEdgeAdapter } from '@builder.io/qwik-city/adapters/vercel-edge/vite';
 
-export default extendConfig(baseConfig, () => {
+export default defineConfig(() => {
   return {
-    build: {
-      ssr: true,
-      rollupOptions: {
-        input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
-      },
-      outDir: ".vercel/output/functions/_qwik-city.func",
-    },
-    plugins: [vercelEdgeAdapter()],
+    plugins: [
+      qwikCity(),
+      qwikVite(),
+      tsconfigPaths(),
+      builderDevTools(),
+      vercelEdgeAdapter(),
+    ],
   };
 });
