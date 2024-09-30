@@ -8,6 +8,7 @@ export function useFirestore() {
   const loading = useSignal<boolean>(true); // Loading state
 
   const fetchMenuItems = $(async () => {
+    if (!db) throw new Error("Firestore is not initialized");
     try {
       const querySnapshot = await getDocs(collection(db, "menuItems"));
       const items: MenuItem[] = querySnapshot.docs.map(doc => ({

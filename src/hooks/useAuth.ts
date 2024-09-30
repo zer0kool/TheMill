@@ -5,6 +5,7 @@ export function useAuth() {
   const user = useSignal<{ uid: string; email: string } | null>(null); // Define the user type
 
   useTask$(() => {
+    if (!auth) throw new Error("Authentication is not initialized");
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
         user.value = { uid: currentUser.uid, email: currentUser.email || '' };
