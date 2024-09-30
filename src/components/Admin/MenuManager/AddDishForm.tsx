@@ -30,6 +30,9 @@ export const AddDishForm = component$<AddDishFormProps>(({ onAddDish$ }) => {
     allergens: [] as string[],
     ingredients: [] as string[],
     category: '',
+    newAllergen: '', // Added to store to match the property used in the component
+    newIngredient: '', // Added to store to match the property used in the component
+    successMessage: '', // Added to store to match the property used in the component
   });
 
   /**
