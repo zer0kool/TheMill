@@ -1,6 +1,6 @@
 import type { TaskCtx } from '@builder.io/qwik';
 import { component$, useStore, $, useContext, useSignal, useTask$ } from '@builder.io/qwik';
-import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '~/services/firebaseConfig';
 import type { AuthContextType } from '~/routes/layout';
 import { AuthContext } from '~/routes/layout';
@@ -19,7 +19,6 @@ const Login = component$(() => {
 
   const handleLogin = $(async () => {
     try {
-      await setPersistence(auth, browserLocalPersistence);
       const userCredential = await signInWithEmailAndPassword(auth, store.email, store.password);
       const user = userCredential.user;
       userSignal.value = {
