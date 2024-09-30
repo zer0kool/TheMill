@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -12,10 +12,10 @@ const firebaseConfig = {
   measurementId: "G-351P610K5J"
 };
 
-// Initialize Firebase only if it hasn't been initialized yet
-const app = typeof window !== 'undefined' ? initializeApp(firebaseConfig) : null;
-const auth = app ? getAuth(app) : null;
-const db = app ? getFirestore(app) : null;
+// Initialize Firebase for both client and server
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 export { app, auth, db };
 
