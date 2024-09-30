@@ -1,4 +1,5 @@
-import { component$, useStore, $, QRL } from '@builder.io/qwik';
+import type { QRL } from '@builder.io/qwik';
+import { component$, useStore, $ } from '@builder.io/qwik';
 import type { MenuItem } from '~/services/menuService';
 import { db } from '~/services/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
@@ -18,19 +19,17 @@ interface AddDishFormProps {
 export const AddDishForm = component$<AddDishFormProps>(({ onAddDish$ }) => {
   const store = useStore({
     name: '',
+    description: '',
     price: 0,
-    type: 'starter',
-    season: 'winter',
-    weather: 'sunny',
-    daytime: 'breakfast',
+    type: '',
+    season: '',
+    weather: '',
+    daytime: '',
     isVegan: false,
     isGlutenFree: false,
-    description: '',
     allergens: [] as string[],
     ingredients: [] as string[],
-    newAllergen: '',
-    newIngredient: '',
-    successMessage: '',
+    category: '',
   });
 
   /**
@@ -39,62 +38,20 @@ export const AddDishForm = component$<AddDishFormProps>(({ onAddDish$ }) => {
    * @param {Event} event - The form submission event.
    * @returns {void}
    */
-  const handleSubmit = $((event: Event): void => {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log('Form submitted. Attempting to add document with data:', store);
+  const handleSubmit = $(async () => {
+    const newDish: Omit<MenuItem, "id"> = {
+      ...store,
+      price: Number(store.price), // Ensure price is a number
+    };
 
-    (async () => {
-      try {
-        if (!db) {
-          throw new Error('Firestore is not initialized');
-        }
+    await onAddDish$(newDish);
 
-        const menuCollection = collection(db, 'menu');
-        console.log('Menu collection reference:', menuCollection);
-
-        const docRef = await addDoc(menuCollection, {
-          name: store.name,
-          price: store.price,
-          type: store.type,
-          season: store.season,
-          weather: store.weather,
-          daytime: store.daytime,
-          isVegan: store.isVegan,
-          isGlutenFree: store.isGlutenFree,
-          description: store.description,
-          allergens: store.allergens,
-          ingredients: store.ingredients,
-        });
-
-        console.log('Document written with ID:', docRef.id);
-        
-        // Reset the form fields
-        store.name = '';
-        store.price = 0;
-        store.type = 'starter';
-        store.season = 'winter';
-        store.weather = 'sunny';
-        store.daytime = 'breakfast';
-        store.isVegan = false;
-        store.isGlutenFree = false;
-        store.description = '';
-        store.allergens = [];
-        store.ingredients = [];
-        store.newAllergen = '';
-        store.newIngredient = '';
-        
-        // Set success message
-        store.successMessage = 'Dish added successfully!';
-      } catch (e) {
-        console.error('Error adding document:', e);
-        if (e instanceof Error) {
-          store.successMessage = `Error adding dish: ${e.message}`;
-        } else {
-          store.successMessage = 'An unknown error occurred. Please try again.';
-        }
-      }
-    })();
+    // Reset form after submission
+    Object.keys(store).forEach(key => {
+      (store as any)[key] = typeof store[key as keyof typeof store] === 'boolean' ? false : 
+                            Array.isArray(store[key as keyof typeof store]) ? [] : '';
+    });
+    store.price = 0;
   });
 
   /**
@@ -145,7 +102,7 @@ export const AddDishForm = component$<AddDishFormProps>(({ onAddDish$ }) => {
     <div class="menu-editor">
       <h2>Add New Dish</h2>
       {store.successMessage && <p class="success-message">{store.successMessage}</p>}
-      <form id="addDishForm" preventdefault:submit onSubmit$={handleSubmit}>
+      <form onSubmit$={handleSubmit} preventdefault:submit>
         <div class="form-group">
           <label for="name">Dish Name</label>
           <input type="text" id="name" placeholder="Enter dish name" required value={store.name} onInput$={(e) => (store.name = (e.target as HTMLInputElement).value)} />
