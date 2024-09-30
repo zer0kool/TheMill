@@ -73,7 +73,7 @@ export const Menu = component$(() => {
             <div key={item.id || Math.random()} class="menu-item">
               <h3>{item.name}</h3>
               <p>{item.description}</p>
-              <p>Price: ${item.price.toFixed(2)}</p>
+              <p>Price: ${(item.price ?? 0).toFixed(2)}</p>
             </div>
           ))
         ) : (
