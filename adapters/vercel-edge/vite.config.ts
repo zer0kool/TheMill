@@ -11,7 +11,6 @@ export default defineConfig(() => {
       qwikCity(),
       qwikVite(),
       tsconfigPaths(),
-      builderDevTools(),
       vercelEdgeAdapter(),
     ],
   };
