@@ -1,4 +1,4 @@
-import { useSignal, useTask$, $ } from "@builder.io/qwik";
+import { useSignal, useTask$} from "@builder.io/qwik";
 import { auth } from "~/services/firebaseConfig"; // Adjust the import as necessary
 
 export function useAuth() {

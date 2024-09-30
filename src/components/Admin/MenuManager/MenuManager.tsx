@@ -223,7 +223,6 @@ export const MenuManager = component$(() => {
                         id="edit-type" 
                         bind:value={editingItem.type} 
                         required 
-                        onChange$={() => (editingItem.type.value = editingItem.type.value)}
                       >
                         <option value="starter">Starter</option>
                         <option value="main">Main Course</option>
@@ -252,7 +251,6 @@ export const MenuManager = component$(() => {
                         id="edit-weather" 
                         bind:value={editingItem.weather} 
                         required 
-                        onChange$={() => (editingItem.weather.value = editingItem.weather.value)}
                       >
                         <option value="sunny">Sunny</option>
                         <option value="rainy">Rainy</option>

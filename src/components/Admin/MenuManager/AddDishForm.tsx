@@ -1,8 +1,6 @@
 import type { QRL } from '@builder.io/qwik';
 import { component$, useStore, $ } from '@builder.io/qwik';
 import type { MenuItem } from '~/services/menuService';
-import { db } from '~/services/firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore';
 import './AddDishForm.css'; // Import the CSS for styling
 
 /**
