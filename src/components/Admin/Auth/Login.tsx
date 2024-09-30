@@ -19,6 +19,8 @@ const Login = component$(() => {
 
   const handleLogin = $(async () => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      if (!auth) throw new Error("Authentication is not initialized");
       const userCredential = await signInWithEmailAndPassword(auth, store.email, store.password);
       const user = userCredential.user;
       userSignal.value = {
