@@ -14,7 +14,7 @@ export const MenuManager = component$(() => {
     id: "",
     name: useSignal(""),
     description: useSignal(""),
-    price: useSignal(0),
+    price: useSignal("0"), // Changed type to string
     type: useSignal("starter"),
     season: useSignal("winter"),
     weather: useSignal("sunny"),
@@ -60,7 +60,7 @@ export const MenuManager = component$(() => {
     editingItem.id = item.id!;
     editingItem.name.value = item.name;
     editingItem.description.value = item.description;
-    editingItem.price.value = item.price !== undefined && item.price !== null ? Number(item.price) : 0;
+    editingItem.price.value = item.price !== undefined && item.price !== null ? item.price.toString() : "0"; // Changed type to string
     editingItem.type.value = item.type;
     editingItem.season.value = item.season;
     editingItem.weather.value = item.weather;
@@ -81,7 +81,7 @@ export const MenuManager = component$(() => {
         id: editingItem.id,
         name: editingItem.name.value,
         description: editingItem.description.value,
-        price: editingItem.price.value,
+        price: Number(editingItem.price.value), // Changed type to number
         type: editingItem.type.value,
         season: editingItem.season.value,
         weather: editingItem.weather.value,
