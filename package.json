@@ -16,7 +16,8 @@
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "vite build -c adapters/vercel-edge/vite.config.ts",
-    "build.types": "tsc --incremental --noEmit"
+    "build.types": "tsc --incremental --noEmit",
+    "start": "vite --open --mode ssr"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.9.0",
