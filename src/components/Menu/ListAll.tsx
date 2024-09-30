@@ -59,6 +59,9 @@ const ListAll = component$(() => {
         state.itemsToShow[category] += 4;
     });
 
+    const onEdit = $(() => {});
+    const onDelete = $(() => {});
+
     return (
         <div class="list-all">
             {Object.entries(groupedItems).map(([category, items]) => (
@@ -70,8 +73,8 @@ const ListAll = component$(() => {
                                 <DishCard 
                                     key={item.id} 
                                     item={item} 
-                                    onEdit$={() => {}}
-                                    onDelete$={() => {}}
+                                    onEdit={onEdit}
+                                    onDelete={onDelete}
                                     isEditable={false}
                                 />
                             ))}
