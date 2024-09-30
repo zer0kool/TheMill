@@ -60,7 +60,7 @@ export const MenuManager = component$(() => {
     editingItem.id = item.id!;
     editingItem.name.value = item.name;
     editingItem.description.value = item.description;
-    editingItem.price.value = item.price;
+    editingItem.price.value = item.price !== undefined && item.price !== null ? Number(item.price) : 0;
     editingItem.type.value = item.type;
     editingItem.season.value = item.season;
     editingItem.weather.value = item.weather;
@@ -93,7 +93,7 @@ export const MenuManager = component$(() => {
         category: editingItem.category.value, // Make sure this line is included
       };
 
-      await menuService.updateMenuItem(updatedItem);
+      await menuService.updateMenuItem(editingItem.id, updatedItem);
       isEditModalOpen.value = false;
       document.body.classList.remove('modal-open');
       const items = await menuService.getMenuItems();

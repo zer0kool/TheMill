@@ -7,7 +7,7 @@ interface MenuItem {
   id?: string;
   name: string;
   description: string;
-  price: number;
+  price?: number;
   type: string;
   season: string;
   weather: string;

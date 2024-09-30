@@ -50,7 +50,12 @@ export default component$((props: DishCardProps) => {
   return (
     <div class="menu-item">
       <h2>{props.item.name}</h2>
-      <p class="price">${props.item.price ? props.item.price.toFixed(2) : 'Ask Me'}</p>
+      <p class="price">
+        ${(props.item.price !== undefined && props.item.price !== null
+          ? Number(props.item.price)
+          : 0
+        ).toFixed(2)}
+      </p>
       <p class="description">{props.item.description}</p>
       <div class="tags">
         {props.item.weather && (
