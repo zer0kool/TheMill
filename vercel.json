@@ -1,15 +1,6 @@
 {
   "headers": [
     {
-      "source": "/(.*)?service-worker.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
       "source": "/build/(.*)",
       "headers": [
         {
@@ -17,21 +8,6 @@
           "value": "public, max-age=31536000, s-maxage=31536000, immutable"
         }
       ]
-    }
-  ],
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": null,
-  "functions": {
-    "src/entry.vercel-edge.tsx": {
-      "runtime": "edge"
-    }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/src/entry.vercel-edge.tsx"
     }
   ]
 }
